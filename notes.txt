@@ -1,0 +1,94 @@
+remember: in ActiveChat component, I'm using a testing version of useEffect with the purpose of emulating a websoket temporarely. I need to eventually switch to the commented version.
+
+do I alrady try to retrieve the messages usernames?
+
+priorities:
+    -pin all users in the right div
+        call "add user to chat" route and display the response message for users already in the chat --- done
+        with links to popup user window --- done
+    
+    -add a logout button --- done
+    -create sign in function --- done
+
+    -add group chat creation function
+        could do it inside popupuserwindow to reutilize create chat and add user functions, but semantically incoherent context.
+
+    DOVE SONO ARRIVATO:
+      sto impostando le impostazioni delle chat di gruppo (SettingsPopup.jsx)
+
+    -add user management component and functions (BIG)
+
+
+
+
+    -implement images for chats --- done (? easier than I thoght. I hope I didn't mess up)
+    how to implement images:
+
+        -assess if chat is a groupChat.
+            -if yes
+                if image === null set it as default groupchat svg
+                else set it as the image string
+            -if not
+                fetch fot user.image
+                    if it's null set it as default user svg avatar
+                    else set it as the image string
+
+        use a separate state array? so that it works asyncronously
+
+
+        this the opinion of codium:
+
+        I intend to add images to chats. here's my plan:
+        -assess if chat is a groupChat.
+            -if yes
+                if image === null set it as default groupchat svg
+                else set it as the image string
+            -if not
+                fetch fot user.image
+                    if it's null set it as default user svg avatar
+                    else set it as the image string
+
+
+              what's bugging me is that I worry I won't be able to call fetchUserImage and use its retutn on every props.chats object because I would only recieve a promise. should I use a separate array as a state so that it shows once the fetch call finishes? or else what?
+
+              Codeium
+              5:49 pm, Feb 25, 2025
+              You're correct that fetchUserImage returns a promise, and you can't directly use its return value in the map function.
+
+              One way to handle this is to use a separate state array, as you mentioned, to store the chat objects with their corresponding images. You can create a new state variable, e.g., chatImages, and update it in the useEffect hook after fetching the images.
+
+              Here's an example:
+
+              jsx
+              CopyInsert
+              const [chatImages, setChatImages] = useState({});
+
+              useEffect(() => {
+                const fetchImages = async () => {
+                  const images = {};
+                  for (const chat of props.chats) {
+                    if (chat.chatType === 'groupChat') {
+                      images[chat.chatId] = chat.image || 'default-group-chat-svg';
+                    } else {
+                      const image = await fetchUserImage(chat.chatName);
+                      images[chat.chatId] = image || 'default-user-svg-avatar';
+                    }
+                  }
+                  setChatImages(images);
+                };
+                fetchImages();
+              }, [props.chats]);
+
+              // ...
+
+              return (
+                <div className="LeftSection">
+                  <h2>Your chats</h2>
+                  {props.chats.map((chat) => (
+                    <div key={chat.chatId} onClick={() => props.setActiveChat(chat.chatId)}>
+                      <img src={chatImages[chat.chatId]} alt={chat.chatName} />
+                      {chat.chatName}
+                    </div>
+                  ))}
+                </div>
+              );

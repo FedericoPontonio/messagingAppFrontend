@@ -1,0 +1,38 @@
+
+
+.PopupUserWindow {
+    background-color: rgb(238, 159, 159);
+    position: absolute;
+    right: 30%;
+    top: 20%;
+    width: 30vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+}
+
+.popupInvisible {
+    display: none;
+}
+
+.popupVisible {
+    display: auto;
+}
+
+.closeWindowButton {
+    position: absolute;
+    left: 28vw;
+    top: -7%;
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    font-size: 35px;
+    font-weight: 700;
+    background-color: rgb(249, 142, 131);
+}
+.closeWindowButton:hover {
+    transition: transform 0.5s;
+    transform: scale(1.3);
+}

@@ -1,0 +1,18 @@
+.feedbackMessage {
+    display: none;
+}
+
+.positive {
+    background-color: greenyellow;
+    color: black;
+}
+
+.negative {
+    background-color: rgb(236, 112, 112);
+    color: white;
+}
+
+.neutral {
+    background-color: lightgray;
+    color: black;
+}

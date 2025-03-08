@@ -1,0 +1,8 @@
+
+
+.allUsersSection {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height: 89vh;
+}

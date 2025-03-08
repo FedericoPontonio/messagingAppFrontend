@@ -1,0 +1,23 @@
+* {
+    border: solid rgb(10, 10, 10, 0.4) 1px;
+    margin: 10px;
+}
+
+#root {
+    height: 96vh;
+    overflow: hidden;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.LeftSection {
+    height: 89vh;
+    overflow: auto;
+}

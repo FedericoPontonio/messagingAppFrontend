@@ -1,0 +1,36 @@
+
+
+.messagesHistory {
+    height: 80vh;
+    overflow: auto;
+}
+
+.messageDiv {
+    display: flex;
+}
+
+
+.messageValue{
+    border-radius: 10px;
+    padding: 10px;
+    border: solid rgb(0, 0, 0, 0.6) 1px;
+}
+
+.ulteriorChatPartecipants {
+    background-color: rgb(178, 176, 176, 0.2);
+    margin-left: auto;
+}
+
+.userMessageStyle {
+    background-color: rgb(6, 193, 6, 0.3);
+}
+
+.newMessageInputDiv {
+    background-color: rgb(215, 215, 173, 0.8);
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    height: 50px;
+}
+.newMessageInputDiv>input {
+    background-color: rgb(236, 194, 139, 0.6);
+}
