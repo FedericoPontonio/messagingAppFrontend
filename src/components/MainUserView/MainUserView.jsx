@@ -17,7 +17,7 @@ function MainUserView(props) {
             <div>Some other Header</div>
             <button onClick={()=>{localStorage.removeItem('token');window.location.reload()}}>Log out</button>
             <LeftSection userId ={props.userId} validateToken={props.validateToken} setActiveChat = {setActiveChat} chats = {chats} setChats = {setChats} newChatCreated = {newChatCreated} setNewChatCreated = {setNewChatCreated} />
-            <ActiveChat chats = {chats} activeChat = {activeChat} userId ={props.userId} sendFeedbackMessage={props.sendFeedbackMessage} />
+            <ActiveChat chats = {chats} activeChat = {activeChat} userId ={props.userId} sendFeedbackMessage={props.sendFeedbackMessage} setNewChatCreated = {setNewChatCreated} />
             <AllUsersSection userId ={props.userId} alreadyInstantiatedChats = {chats} setActiveChat = {setActiveChat}  newChatCreated = {newChatCreated} setNewChatCreated = {setNewChatCreated} />
         </div>
     )

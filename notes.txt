@@ -14,7 +14,14 @@ priorities:
         could do it inside popupuserwindow to reutilize create chat and add user functions, but semantically incoherent context.
 
     DOVE SONO ARRIVATO:
-      sto impostando le impostazioni delle chat di gruppo (SettingsPopup.jsx)
+      Ho creato funzionalità per cambiare il nome di una chat di gruppo.
+      Ora devo creare funzionalità per aggiungere un utente ad una chat di gruppo.
+        input che crea tendina con gli utenti?
+        --creata API. creata fetch function nel frontend.
+        --devo creare un useEffect che al cambiare dello state di searchParameter fa girare la fetch request.
+        --poi comincio loggando la risposta. se tutto è ok programmo la tendina con i risultati.
+      poi aggiungere funcionalità per cambiare immagine. (prima aggiungere libreria per claudinary?)
+      
 
     -add user management component and functions (BIG)
 

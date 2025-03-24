@@ -133,8 +133,7 @@ function ActiveChat (props) {
             </>
             }
 
-            {settingsOpen && <SettingsPopup isSettingsOpen = {settingsOpen} setSettingsOpen = {setSettingsOpen} />}
-
+            {settingsOpen && <SettingsPopup isSettingsOpen = {settingsOpen} setSettingsOpen = {setSettingsOpen} activeChat = {props.activeChat} activeChatObject = {activeChatObject} triggerLeftSectionRerender = {props.setNewChatCreated} />}
             {!props.activeChat && <>
                 <div className="noActiveChat">
                     Welcome to your chat interface. <br />
